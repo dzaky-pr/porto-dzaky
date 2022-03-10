@@ -1,32 +1,21 @@
-import { createTheme, NextUIProvider } from '@nextui-org/react';
-// import '../styles/globals.css';
-
-const darkTheme = createTheme({
-  type: 'light', // light / dark
-  className: '', // optional
-  theme: {
-    colors: {},
-    space: {},
-    fontSizes: {},
-    fonts: {},
-    fontWeights: {},
-    lineHeights: {},
-    letterSpacings: {},
-    sizes: {},
-    borderWidths: {},
-    borderStyles: {},
-    radii: {},
-    shadows: {},
-    zIndices: {},
-    transitions: {},
-  },
-});
+import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { lightTheme, darkTheme } from '../theme/shared';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NextUIProvider theme={darkTheme}>
-      <Component {...pageProps} />
-    </NextUIProvider>
+    <NextThemesProvider
+      defaultTheme="system"
+      attribute="class"
+      value={{
+        light: lightTheme.className,
+        dark: darkTheme.className,
+      }}
+    >
+      <NextUIProvider>
+        <Component {...pageProps} />
+      </NextUIProvider>
+    </NextThemesProvider>
   );
 }
 

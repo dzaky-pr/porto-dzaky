@@ -1,18 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { Switch } from '@nextui-org/react';
-import { Sun, Moon, Logo } from '../components';
-import { styled } from '@stitches/react';
-
-const Nav = styled('nav', {
-  top: 0,
-  display: 'flex',
-  alignItems: 'center',
-  height: '76px',
-  position: 'sticky',
-  background: '#F4F4F4',
-  zIndex: '99999',
-});
+import { Navbar } from '../components/';
 
 export default function Home() {
   return (
@@ -23,10 +11,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Nav>
-        <Logo />
-        <Switch checked={true} size="lg" iconOn={<Sun filled />} iconOff={<Moon filled />} />
-      </Nav>
+      <Navbar />
+
       <main>
         <h1>Hello everyone! I’m Dzaky Rifa’i.</h1>
 
