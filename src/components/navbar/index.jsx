@@ -10,18 +10,17 @@ const Nav = styled('nav', {
   alignItems: 'center',
   height: '76px',
   position: 'sticky',
-  background: '#F4F4F4', // create efficiency for dark and light components
+  background: '#A0A7AF', // create efficiency for dark and light components
   zIndex: '99999',
 });
 
 const Navbar = () => {
   const { setTheme } = useNextTheme();
-  const { isDark, type } = useTheme();
+  const { isDark } = useTheme();
   return (
     <Nav>
       <Logo />
-      <Switch checked={isDark} onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')} size="lg" iconOn={<Sun filled />} iconOff={<Moon filled />} />
-      The current theme is: {type}
+      <Switch checked={isDark} onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')} size="lg" color="primary" iconOn={<Sun filled />} iconOff={<Moon filled />} />
     </Nav>
   );
 };
